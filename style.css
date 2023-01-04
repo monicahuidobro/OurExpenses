@@ -1,0 +1,119 @@
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  background-color: #e0f7fa;
+  margin: 10px auto;
+  width: 500px;
+  height: 800px;
+  border: 5px solid #000000;
+  display: block;
+  justify-items: center;
+}
+
+main {
+  margin: 0px 50px;
+  padding-bottom: 20px;
+  justify-items: center;
+  background-color: #ffffff;
+  border-radius: 10%;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #00acc1;
+  margin: 20px 50px;
+}
+
+.formulario {
+  line-height: 50px;
+}
+
+.transaccionGuardada {
+  line-height: 25px;
+}
+
+.transaccionGuardada h2 {
+  font-weight: bold;
+  color: #00acc1;
+}
+
+ul {
+  list-style: circle;
+  text-align: left;
+  margin-left: 100px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+ul span {
+  font-weight: normal;
+}
+
+table {
+  margin: 10px auto;
+  font-size: 0.9em;
+  border: 2px solid #00acc1;
+}
+
+td,
+th {
+  padding: 2px;
+  border: 1px solid #00acc1;
+  width: 100px;
+}
+
+.cabecera {
+  background-color: #00acc1;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #00acc1;
+}
+
+.titulosPagos,
+.totalPagos,
+.titulosGastos,
+.totalGastos {
+  color: #00acc1;
+  font-weight: bold;
+  border: 2px solid #00acc1;
+}
+
+input,
+select {
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border: 2px solid #00acc1;
+}
+
+input[type="radio"]:checked {
+  background-color: #00acc1;
+}
+
+input[type="submit"] {
+  background-color: #00acc1;
+  color: #ffffff;
+  padding: 5px 10px;
+  border: 1px solid #00acc1;
+  border-radius: 10%;
+}
+input[type="submit"]:hover {
+  background-color: #ffffff;
+  color: #00acc1;
+  cursor: pointer;
+}
+
+input[type="submit"]:active {
+  background-color: #ffffff;
+  color: #00acc1;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px #00acc1;
+}

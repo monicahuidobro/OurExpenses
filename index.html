@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="reset.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;400;600&display=swap" rel="stylesheet">
+    <title>OurExpenses</title>
+  </head>
+  <body>
+    <header>
+      <h1>NUEVA TRANSACCIÓN</h1>
+    </header>
+    <main>
+      <section class="formulario">
+        <form id="nuevaTransaccion">
+        <label for="usuario">Quien?</label>
+        <input type="radio" id="usuario" name="usuario" value="unai">Unai</input>
+        <input type="radio" id="usuario" name="usuario" value="monica">Mónica</input>
+        <br>
+        <label for="tipo">Que?</label>
+        <input type="radio" id="tipo" name="tipo" value="gasto">Gasto</input>
+        <input type="radio" id="tipo" name="tipo" value="transferencia">Transferencia</input>
+        <br>
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+          <option value="alquiler">Alquiler</option>
+          <option value="compra">Compra</option>
+          <option value="luz">Luz</option>
+          <option value="agua">Agua</option>
+          <option value="internet">Internet</option>
+          <option value="limpieza">Limpieza</option>
+          <option value="otros">Otros</option>
+        </select>
+        <br>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" step="0.01" min="0" max="5000">€</input>
+        <br>
+        <label for="reparto">Para quien?</label>
+        <input type="radio" id="reparto" name="reparto" value="unai">Unai</input>
+        <input type="radio" id="reparto" name="reparto" value="monica">Mónica</input>
+        <input type="radio" id="reparto" name="reparto" value="ambos">Ambos</input>
+        <br>
+        <input type="submit" value="Guardar"></input>
+        </form>
+      </section>
+      <section class="transaccionGuardada">
+        <h2>Transaccion guardada:</h2>
+        <ul>
+          <li>Nº: <span id="tranID"></span></li>
+          <li>Quien: <span id="tranUsuario"></span></li>
+          <li>Que: <span id="tranTipo"></span></li>
+          <li>Categoria: <span id="tranCategoria"></span></li>
+          <li>Cantidad: <span id="tranCantidad"></span>€</li>
+          <li>Para quien: <span id="tranReparto"></span></li>
+          </ul>
+      </section>
+      <table class="resumenPagos">
+        <tr class="cabecera">
+          <td colspan="3">TOTAL PAGOS POR PERSONA</td>
+        </tr>
+        <tr class="titulosPagos">
+          <th>Categoria</th>
+          <th>Unai</th>
+          <th>Monica</th>
+        </tr>
+        <tr class="alquilerPagos">
+          <td>Alquiler</td>
+          <td id="unaiAlquiler"></td>
+          <td id="monicaAlquiler"></td>
+        </tr>
+        <tr class="compraPagos">
+          <td>Compra</td>
+          <td id="unaiCompra"></td>
+          <td id="monicaCompra"></td>
+        </tr>
+
+        <tr class="luzPagos">
+          <td>Luz</td>
+          <td id="unaiLuz"></td>
+          <td id="monicaLuz"></td>
+        </tr>
+        <tr class="aguaPagos">
+          <td>Agua</td>
+          <td id="unaiAgua"></td>
+          <td id="monicaAgua"></td>
+        </tr>
+        <tr class="internetPagos">
+          <td>Internet</td>
+          <td id="unaiInternet"></td>
+          <td id="monicaInternet"></td>
+        </tr>
+        <tr class="limpiezaPagos">
+          <td>Limpieza</td>
+          <td id="unaiLimpieza"></td>
+          <td id="monicaLimpieza"></td>
+        </tr>
+        <tr class="otrosPagos">
+          <td>Otros</td>
+          <td id="unaiOtros"></td>
+          <td id="monicaOtros"></td>
+        </tr>
+        <tr class="totalPagos">
+          <td>Total</td>
+          <td id="unaiTotal"></td>
+          <td id="monicaTotal"></td>
+        </tr>
+      </table>
+      <table class="resumenGastos">
+        <tr class="cabecera">
+          <td colspan="3">TOTAL GASTOS POR PERSONA</td>
+        </tr>
+        <tr class="titulosGastos">
+          <th>Unai</th>
+          <th>Monica</th>
+        </tr>
+        <tr class="totalGastos">
+          <td id="unaiGastos"></td>
+          <td id="monicaGastos"></td>
+        </tr>
+      </table>
+      <table class="resumenTransferencias">
+        <tr class="cabecera">
+          <td colspan="3">TOTAL TRABSFERENCIAS POR PERSONA</td>
+        </tr>
+        <tr class="titulosTransferencia">
+          <th>Unai</th>
+          <th>Monica</th>
+        </tr>
+        <tr class="totalTransferencias">
+          <td id="unaiTransferencias"></td>
+          <td id="monicaTransferencias"></td>
+        </tr>
+      </table>
+    </main>
+    <script src="myJS.js"></script>
+  </body>
+</html>
