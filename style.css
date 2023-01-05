@@ -1,119 +1,213 @@
 body {
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 14px;
   text-align: center;
-  background-color: #e0f7fa;
+  background-color: #dfc9cb;
   margin: 10px auto;
   width: 500px;
   height: 800px;
-  border: 5px solid #000000;
   display: block;
   justify-items: center;
 }
 
-main {
+#paginaPrincipal,
+#paginaResumen {
   margin: 0px 50px;
   padding-bottom: 20px;
+  padding-top: 20px;
   justify-items: center;
   background-color: #ffffff;
   border-radius: 10%;
+  display: block;
+  height: 600px;
+  box-shadow: 2px 2px 10px #884825;
 }
 
 h1 {
   font-size: 2em;
   font-weight: bold;
-  color: #00acc1;
+  color: #884825;
   margin: 20px 50px;
+  text-shadow: 2px 2px 10px #ffffff;
 }
 
 .formulario {
-  line-height: 50px;
-}
-
-.transaccionGuardada {
   line-height: 25px;
+  font-size: 1.3em;
 }
 
-.transaccionGuardada h2 {
+#tituloPestaña {
+  font-size: 1.5em;
+  margin-bottom: 10px;
   font-weight: bold;
-  color: #00acc1;
+  text-shadow: 2px 2px 10px #884825;
+  color: #884825;
 }
 
-ul {
-  list-style: circle;
-  text-align: left;
-  margin-left: 100px;
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-
-ul span {
-  font-weight: normal;
+.transGuardada {
+  margin: 20px auto;
+  width: 80%;
+  font-style: italic;
+  font-size: 1.3em;
 }
 
 table {
   margin: 10px auto;
-  font-size: 0.9em;
-  border: 2px solid #00acc1;
+  border: 2px solid #884825;
 }
 
 td,
 th {
   padding: 2px;
-  border: 1px solid #00acc1;
+  border: 1px solid #884825;
   width: 100px;
-}
-
-.cabecera {
-  background-color: #00acc1;
-  color: white;
-  font-weight: bold;
-  border: 2px solid #00acc1;
 }
 
 .titulosPagos,
 .totalPagos,
 .titulosGastos,
 .totalGastos {
-  color: #00acc1;
+  color: #884825;
   font-weight: bold;
-  border: 2px solid #00acc1;
+  border: 2px solid #884825;
 }
 
 input,
 select {
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   text-align: center;
 }
 
-input[type="radio"] {
+input[value="unai"] {
   appearance: none;
-  width: 12px;
-  height: 12px;
-  background-color: #ffffff;
-  border: 2px solid #00acc1;
+  width: 50px;
+  height: 50px;
+  background-image: url("icons/unaiB&W.png");
+  background-repeat: none;
+  background-size: cover;
 }
 
-input[type="radio"]:checked {
-  background-color: #00acc1;
+input[value="monica"] {
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("icons/monicaB&W.png");
+  background-repeat: none;
+  background-size: cover;
+}
+
+input[value="ambos"] {
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("icons/ambosB&W.png");
+  background-repeat: none;
+  background-size: cover;
+}
+
+input[value="gasto"] {
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("icons/gastoB&W.png");
+  background-repeat: none;
+  background-size: cover;
+}
+
+input[value="transferencia"] {
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("icons/transferenciaB&W.png");
+  background-repeat: none;
+  background-size: cover;
+}
+
+input[value="unai"]:checked {
+  background-image: url("icons/unai.png");
+}
+
+input[value="monica"]:checked {
+  background-image: url("icons/monica.png");
+}
+
+input[value="ambos"]:checked {
+  background-image: url("icons/ambos.png");
+}
+
+input[value="gasto"]:checked {
+  background-image: url("icons/gasto.png");
+}
+
+input[value="transferencia"]:checked {
+  background-image: url("icons/trasnferencia.png");
+}
+
+select {
+  border: none;
+  font-size: 1em;
+  color: #884825;
+  font-style: italic;
+}
+
+input[type="number"] {
+  border: none;
+  font-size: 1em;
+  color: #884825;
+  font-style: italic;
 }
 
 input[type="submit"] {
-  background-color: #00acc1;
+  background-color: #884825;
   color: #ffffff;
   padding: 5px 10px;
-  border: 1px solid #00acc1;
+  border: 1px solid #884825;
   border-radius: 10%;
+  font-size: 1em;
 }
 input[type="submit"]:hover {
   background-color: #ffffff;
-  color: #00acc1;
+  color: #884825;
   cursor: pointer;
 }
 
 input[type="submit"]:active {
   background-color: #ffffff;
-  color: #00acc1;
+  color: #884825;
   cursor: pointer;
-  box-shadow: 2px 2px 10px #00acc1;
+  box-shadow: 2px 2px 10px #884825;
+}
+
+nav {
+  height: 90px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav button {
+  height: 50px;
+  width: 100px;
+  border-radius: 10%;
+  border: none;
+  background-color: #ffffff;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  color: #884825;
+  font-size: 1.3em;
+  box-shadow: 2px 2px 10px #884825;
+}
+
+nav button:hover {
+  background-color: #884825;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+nav button:active {
+  background-color: #ffffff;
+  color: #884825;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px #884825;
 }

@@ -6,23 +6,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;400;600&display=swap" rel="stylesheet">
-    <title>OurExpenses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <title>lionExpenses</title>
   </head>
   <body>
     <header>
-      <h1>NUEVA TRANSACCIÓN</h1>
+      <h1>LionEXPENSES</h1>
     </header>
-    <main>
+    <main id="paginaPrincipal">
+      <h2 id="tituloPestaña">NUEVA TRANSACCIÓN</h2>
       <section class="formulario">
         <form id="nuevaTransaccion">
         <label for="usuario">Quien?</label>
-        <input type="radio" id="usuario" name="usuario" value="unai">Unai</input>
-        <input type="radio" id="usuario" name="usuario" value="monica">Mónica</input>
         <br>
+        <input type="radio" id="usuario" name="usuario" value="unai"></input>
+        <input type="radio" id="usuario" name="usuario" value="monica"></input>
+        <br><br>
         <label for="tipo">Que?</label>
-        <input type="radio" id="tipo" name="tipo" value="gasto">Gasto</input>
-        <input type="radio" id="tipo" name="tipo" value="transferencia">Transferencia</input>
         <br>
+        <input type="radio" id="tipo" name="tipo" value="gasto"></input>
+        <input type="radio" id="tipo" name="tipo" value="transferencia"></input>
+        <br><br>
+        <label for="reparto">Para quien?</label>
+        <br>
+        <input type="radio" id="reparto" name="reparto" value="unai"></input>
+        <input type="radio" id="reparto" name="reparto" value="monica"></input>
+        <input type="radio" id="reparto" name="reparto" value="ambos"></input>
+        <br><br>
         <label for="categoria">Categoría:</label>
         <select id="categoria" name="categoria">
           <option value="alquiler">Alquiler</option>
@@ -33,30 +46,21 @@
           <option value="limpieza">Limpieza</option>
           <option value="otros">Otros</option>
         </select>
-        <br>
+        <br><br>
         <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" step="0.01" min="0" max="5000">€</input>
-        <br>
-        <label for="reparto">Para quien?</label>
-        <input type="radio" id="reparto" name="reparto" value="unai">Unai</input>
-        <input type="radio" id="reparto" name="reparto" value="monica">Mónica</input>
-        <input type="radio" id="reparto" name="reparto" value="ambos">Ambos</input>
-        <br>
+        <input type="number" id="cantidad" name="cantidad" step="0.01" min="0" max="5000" pattern="[0-9€]+" placeholder="€"></input>
+        <br><br>
         <input type="submit" value="Guardar"></input>
         </form>
       </section>
-      <section class="transaccionGuardada">
-        <h2>Transaccion guardada:</h2>
-        <ul>
-          <li>Nº: <span id="tranID"></span></li>
-          <li>Quien: <span id="tranUsuario"></span></li>
-          <li>Que: <span id="tranTipo"></span></li>
-          <li>Categoria: <span id="tranCategoria"></span></li>
-          <li>Cantidad: <span id="tranCantidad"></span>€</li>
-          <li>Para quien: <span id="tranReparto"></span></li>
-          </ul>
+      <section class="transGuardada">
+        <p id="mensajeGuardado">....</p>
       </section>
-      <table class="resumenPagos">
+    </main>
+    <section id="paginaResumen">
+      <h2 id="tituloPestaña">RESUMEN GLOBAL</h2>
+      <canvas id="resumenUnai" width="600" height="400"></canvas>
+      <!--<table class="resumenPagos">
         <tr class="cabecera">
           <td colspan="3">TOTAL PAGOS POR PERSONA</td>
         </tr>
@@ -132,8 +136,12 @@
           <td id="unaiTransferencias"></td>
           <td id="monicaTransferencias"></td>
         </tr>
-      </table>
-    </main>
+      </table> --> 
+    </section>
+    <nav>
+      <button id="pagPrincipal">Nueva</button>
+      <button id="pagResumen">Resumen</button>
+    </nav>
     <script src="myJS.js"></script>
   </body>
 </html>

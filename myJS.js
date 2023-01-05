@@ -31,18 +31,30 @@ let arrTransacciones = [];
 let cuentaTransacciones = 0;
 
 const form = document.getElementById('nuevaTransaccion');
-const tranID = document.getElementById('tranID');
-const tranUsuario = document.getElementById('tranUsuario');
-const tranTipo = document.getElementById('tranTipo');
-const tranCategoria = document.getElementById('tranCategoria');
-const tranCantidad = document.getElementById('tranCantidad');
-const tranReparto = document.getElementById('tranReparto');
 
-let unaiAlquiler=document.getElementById('unaiAlquiler');
-let unaiCompra=document.getElementById('unaiCompra');
-let unaiLuz=document.getElementById('unaiLuz');
-let unaiAgua=document.getElementById('unaiAgua');
-let unaiInternet=document.getElementById('unaiInternet');
+let mensajeGuardado=document.getElementById('mensajeGuardado');
+
+let unaiAlquiler=0;
+let unaiCompra=0;
+let unaiLuz=0;
+let unaiAgua=0;
+let unaiInternet=0;
+
+var resumenUnai = document.getElementById('resumenUnai');
+
+var chart = new Chart(resumenUnai, {
+  type: 'doughnut',
+  data:{
+  datasets: [{
+    data: [unaiAlquiler, unaiCompra, unaiLuz, unaiAgua, unaiInternet],
+    backgroundColor: ['#42a5f5', 'red', 'green','blue','violet'],
+    label: 'Comparacion de navegadores'}],
+  labels: ['Alquiler','Compra','Luz','Agua','Internet']},
+  options: {responsive: true}
+});
+
+
+/*
 let unaiLimpieza=document.getElementById('unaiLimpieza');
 let unaiOtros=document.getElementById('unaiOtros');
 let unaiTotal=document.getElementById('unaiTotal');
@@ -58,7 +70,7 @@ let monicaTotal=document.getElementById('monicaTotal');
 let unaiGastos=document.getElementById('unaiGastos');
 let monicaGastos=document.getElementById('monicaGastos');
 let unaiTransferencias=document.getElementById('unaiTransferencias');
-let monicaTransferencias=document.getElementById('monicaTransferencias');
+let monicaTransferencias=document.getElementById('monicaTransferencias');*/
 
 
 sumaPagosPorCategoria = (usuario, tipo, categoria) => {
@@ -107,19 +119,24 @@ form.addEventListener('submit', (event) => {
 
   const transaccion = new transaccionClass(cuentaTransacciones ,usuario, tipo, categoria, cantidad, reparto);
   
-  tranID.innerText = cuentaTransacciones;
-  tranUsuario.innerText = usuario;
-  tranTipo.innerText = tipo;
-  tranCategoria.innerText = categoria;
-  tranCantidad.innerHTML = cantidad;
-  tranReparto.innerText = reparto;
+  mensajeGuardado.innerHTML = `Se ha guardado correctamente la transacción tipo ${tipo} de ${usuario} para ${reparto}, con valor de ${cantidad}€!`;
 
   cuentaTransacciones++;
 
   arrTransacciones.push(transaccion);
-  console.log(transaccion);
 
-  unaiAlquiler.innerText = sumaPagosPorCategoria ('unai', 'gasto', 'alquiler');
+  unaiAlquiler = sumaPagosPorCategoria ('unai', 'gasto', 'alquiler');
+  unaiCompra = sumaPagosPorCategoria ('unai', 'gasto', 'compra');
+  unaiAgua = sumaPagosPorCategoria ('unai', 'gasto', 'agua');
+  unaiInternet = sumaPagosPorCategoria ('unai', 'gasto', 'internet');
+  unaiLuz = sumaPagosPorCategoria ('unai', 'gasto', 'luz');
+
+  console.log(unaiAgua);
+
+  chart.data.datasets[0].data = [unaiAlquiler, unaiCompra, unaiLuz, unaiAgua, unaiInternet];
+  chart.update();
+
+  /*unaiAlquiler.innerText = sumaPagosPorCategoria ('unai', 'gasto', 'alquiler');
   unaiCompra.innerText = sumaPagosPorCategoria ('unai', 'gasto', 'compra');
   unaiLuz.innerText = sumaPagosPorCategoria ('unai', 'gasto', 'luz');
   unaiAgua.innerText = sumaPagosPorCategoria ('unai', 'gasto', 'agua');
@@ -140,7 +157,41 @@ form.addEventListener('submit', (event) => {
   monicaGastos.innerText = sumaGastosPorUsuario ('monica', 'gasto');
   unaiGastos.innerText = sumaGastosPorUsuario ('unai', 'gasto');
   monicaTransferencias.innerText = sumaGastosPorUsuario ('monica', 'transferencia');
-  unaiTransferencias.innerText = sumaGastosPorUsuario ('unai', 'transferencia');
+  unaiTransferencias.innerText = sumaGastosPorUsuario ('unai', 'transferencia');*/
 
+   
 });
+
+
+const buttonPagPrincipal = document.getElementById('pagPrincipal');
+const buttonPagResumen = document.getElementById('pagResumen');
+const paginaPrincipal = document.getElementById('paginaPrincipal');
+const paginaResumen = document.getElementById('paginaResumen');
+
+paginaPrincipal.style.display = 'block';
+paginaResumen.style.display = 'none';
+
+buttonPagPrincipal.onclick = () => {
+  paginaPrincipal.style.display = 'block';
+  paginaResumen.style.display = 'none';
+  buttonPagPrincipal.style.backgroundColor = '#884825'
+  buttonPagPrincipal.style.color = '#ffffff'
+  buttonPagResumen.style.backgroundColor = '#ffffff'
+  buttonPagResumen.style.color = '#884825'
+
+}
+
+buttonPagResumen.onclick = () => {
+  paginaResumen.style.display = 'block';
+  paginaPrincipal.style.display = 'none';
+  buttonPagResumen.style.backgroundColor = '#884825'
+  buttonPagResumen.style.color = '#ffffff'
+  buttonPagPrincipal.style.backgroundColor = '#ffffff'
+  buttonPagPrincipal.style.color = '#884825'
+}
+
+
+
+
+
 
